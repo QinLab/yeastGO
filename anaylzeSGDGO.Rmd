@@ -14,3 +14,14 @@ paste("There are", length(unique(tb[,5])), "GO terms.")
 paste( "there are ", length(unique(tb[tb$V9=="F",5])), "F GO terms")
 ```
 
+# add ORF 
+```{r}
+tb2 = tb[,c(2,3,5, 9, 10, 11) ]
+names(tb2) = c("SGD", "name", "GOID", "GOtype", "desc", "longname")
+for( i in 1:length(tb2[,1])){
+  tmp = strsplit(tb2$longname[i], split = "\\|")[[1]]
+  #print(tmp[1])
+  tb2$ORF[i] = tmp[1]
+}
+```
+
