@@ -1,0 +1,16 @@
+
+```{r}
+list.files()
+tb = read.table("gene_association.sgd", skip=25, sep="\t", stringsAsFactors=FALSE, quote = "", row.names = NULL)
+```
+
+```{r}
+paste("There are", length(unique(tb[,3])), "genes.")
+paste("There are", length(unique(tb[,9])), "types of GO terms.")
+paste("There are", length(unique(tb[,5])), "GO terms.")
+```
+
+```{r}
+paste( "there are ", length(unique(tb[tb$V9=="F",5])), "F GO terms")
+```
+
